@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" ng-app>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Affichage animation scène</title>
 
-    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,13 +15,46 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+      
+    <!--
+      TODO Liste
+      * résultats => 3 derniers résultats
+      * 3 prochains matchs
+      * matchs en cours : sous forme de tables
+      * chiffres : nbre matchs, nbre matchs joués, nbre équipes homologuées
+    -->
   </head>
-  <body>
-    <h1>Hello, world!</h1>
+  <body ng-controller="Matchs">
+    <h1>Affichage scène</h1>
+    <div class="well">
+      Tables : 1 droite public, 2 milieu, 3 gauche public<br/>
+      Remerciements : Planète Sciences Picardie, services techniques de la Ville de St Quentin, Office de Tourisme du St Quentinois, équipe techniques du Splendid, Cinéquai et Base Urbaine de Loisirs<br/>
+      Partenaires : Aldebaran Robotics, Apegelec Industries, Bus Pastel, Eurobot Junior, Espace scolaire Concordet, Fanuc, Lycée Marie Curie, Ministère des Droits femmes, de la Ville, de la Jeunesse et des Sports, Université de Picardie Jules Vernes, Stäubli<br/>
+      Planning : 14h15-16h15 1ère série de matchs, 16h45-18h45 2ème série, demain 9h et 11h 3ème et 4ème séries, 14h finales<br/>
+      Message des poules : {{ message }}
+    </div>
+    <table class="table table-striped matchs">
+      <tr>
+        <th>Table</th>
+        <th>Équipe 1</th>
+        <th></th>
+        <th></th>
+        <th>Équipe 2</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="match in matchs" ng-swipe-right="delete(match.id)" ng-click="delete(match.id)" ng-show="deleted.indexOf(match.id) == -1">
+        <td>{{ match.table }}</td>
+        <td>{{ match.eq1 }}</td>
+        <td>{{ match.score1 }}</td>
+        <td>{{ match.score2 }}</td>
+        <td>{{ match.eq2 }}</td>
+        <td><span class="glyphicon glyphicon-remove"></span></td>
+      </tr>
+    </table>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+    <script src="js/main.js?2"></script>
   </body>
 </html>
