@@ -6,7 +6,7 @@ function Matchs($scope, $http, $timeout) {
     if(!$scope.retry){
       $scope.retry = 3000;
     }
-    $http.get('http://10.10.113.6/poolzorlive/ajax.php?page=pad_liste_matchs_finis').success(function(data) {
+    $http.get(poolzorlive_url + 'ajax.php?page=pad_liste_matchs_finis').success(function(data) {
       $scope.error = false;
       $scope.matchs = data.matchs;
       $scope.message = data.message || "";
