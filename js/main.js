@@ -1,6 +1,4 @@
 function Matchs($scope, $http, $timeout) {
-  $scope.deleted = [];
-  
   // Read with polling
   (function poll(){
     if(!$scope.retry){
@@ -18,8 +16,4 @@ function Matchs($scope, $http, $timeout) {
       $timeout(poll, $scope.retry);
     });
   })();
-  
-  $scope.delete = function(id) {
-    $scope.deleted.push(id);
-  }
 }

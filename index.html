@@ -38,15 +38,13 @@
         <th></th>
         <th></th>
         <th>Équipe 2</th>
-        <th></th>
       </tr>
-      <tr ng-repeat="match in matchs" ng-swipe-right="delete(match.id)" ng-click="delete(match.id)" ng-show="deleted.indexOf(match.id) == -1">
+      <tr ng-repeat="match in matchs">
         <td>{{ match.table }}</td>
         <td>{{ match.eq1 }}</td>
         <td>{{ match.score1 }}</td>
         <td>{{ match.score2 }}</td>
         <td>{{ match.eq2 }}</td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
       </tr>
     </table>
 
