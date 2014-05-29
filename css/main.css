@@ -17,3 +17,9 @@ table.matchs tr *:nth-child(2), table.matchs tr *:nth-child(3) {
 table.matchs tr *:nth-child(4), table.matchs tr *:nth-child(5) {
   text-align:left;
 }
+.ready {
+  color: red;
+  font-weight: bold;
+}
+
+/* différents états : wait, start, ready, stop, closed, cancel */
